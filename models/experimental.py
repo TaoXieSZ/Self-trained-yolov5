@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-from models.common import Conv, DWConv, BottleneckCSP
+from models.common import Conv, DWConv, BottleneckCSP, Bottleneck
 from utils.activations import FReLU
 from utils.google_utils import attempt_download
 
@@ -16,13 +16,13 @@ class Scale(nn.Module):
         # ch_in, ch_out, number, scale_factor
         super(Scale, self).__init__()
         self.sf = sf
-        self.C3 = BottleneckCSP(c1, c2, n=n, shortcut=True, g=1, e=0.5)
-        self.FReLU = nn.Identity()
+        self.C3 = C3b(c1, c2, n=n, shortcut=True, g=1, e=0.5)
         # self.scale = nn.Upsample(scale_factor=sf, mode='bilinear', align_corners=False)
 
     def forward(self, x):
-        x = self.FReLU(self.C3(x))
-        return F.interpolate(x, scale_factor=self.sf, mode='bilinear', align_corners=False, recompute_scale_factor=False)
+        x = self.C3(x)
+        return F.interpolate(x, scale_factor=self.sf, mode='bilinear', align_corners=False,
+                             recompute_scale_factor=False)
 
 
 class CrossConv(nn.Module):
@@ -56,6 +56,34 @@ class C3(nn.Module):
         y1 = self.cv3(self.m(self.cv1(x)))
         y2 = self.cv2(x)
         return self.cv4(self.act(self.bn(torch.cat((y1, y2), dim=1))))
+
+
+class C3a(nn.Module):
+    # Bottleneck with 3 convolutions
+    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
+        super(C3a, self).__init__()
+        c_ = int(c2 * e)  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c_ + c1, 2 * c_, 1, 1)
+        self.cv3 = Conv(2 * c_, c2, 1, 1)
+        self.m = nn.Sequential(*[Bottleneck(c_, c_, shortcut, g, e=1.0) for _ in range(n)])
+
+    def forward(self, x):
+        return self.cv3(self.cv2(torch.cat((self.m(self.cv1(x)), x), dim=1)))
+
+
+class C3b(nn.Module):
+    # Bottleneck with 2 convolutions
+    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
+        super(C3b, self).__init__()
+        c_ = int(c2 * e)  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c1, c_, 1, 1)
+        self.cv3 = Conv(2 * c_, c2, 1, 1)
+        self.m = nn.Sequential(*[Bottleneck(c_, c_, shortcut, g, e=1.0) for _ in range(n)])
+
+    def forward(self, x):
+        return self.cv3(torch.cat((self.m(self.cv1(x)), self.cv2(x)), dim=1))
 
 
 class Sum(nn.Module):
