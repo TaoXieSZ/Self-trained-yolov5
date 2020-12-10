@@ -284,31 +284,3 @@ if __name__ == '__main__':
     # print("Run 'tensorboard --logdir=models/runs' to view tensorboard at http://localhost:6006/")
     # tb_writer.add_graph(model.model, img)  # add model to tensorboard
     # tb_writer.add_image('test', img[0], dataformats='CWH')  # add model to tensorboard
-
-#
-#        1.4      7040      52.0ms models.common.Focus
-#        3.8     73984      61.2ms models.common.Conv
-#        8.3    161152     213.9ms models.common.BottleneckCSP
-#        3.8    295424      51.9ms models.common.Conv
-#       20.8   1627904     310.7ms models.common.BottleneckCSP
-#        3.8   1180672      45.7ms models.common.Conv
-#       20.8   6499840     269.0ms models.common.BottleneckCSP
-#        3.8   4720640      45.2ms models.common.Conv
-#        2.1   2624512     115.2ms models.common.SPP
-#        8.2  10234880     108.2ms models.common.BottleneckCSP
-#        0.4    525312       5.4ms models.common.Conv
-#        0.0         0       0.6ms torch.nn.modules.upsampling.Upsample
-#        0.0         0       0.9ms models.common.Concat
-#        9.0   2823680     125.3ms models.common.BottleneckCSP
-#        0.4    131584       7.1ms models.common.Conv
-#        0.0         0       2.1ms torch.nn.modules.upsampling.Upsample
-#        0.0         0       3.8ms models.common.Concat
-#        9.1    707328     204.0ms models.common.BottleneckCSP
-#        1.9    590336      24.3ms models.common.Conv
-#        0.0         0       1.4ms models.common.Concat
-#        8.2   2561536     108.1ms models.common.BottleneckCSP
-#        1.9   2360320      23.3ms models.common.Conv
-#        0.0         0       0.2ms models.common.Concat
-#        8.2  10234880      99.6ms models.common.BottleneckCSP
-# 1878.8ms total
-# torch.Size([1, 1024, 20, 20])
