@@ -3,9 +3,26 @@
 import numpy as np
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 
-from models.common import Conv, DWConv
+from models.common import Conv, DWConv, BottleneckCSP
+from utils.activations import FReLU
 from utils.google_utils import attempt_download
+
+
+class Scale(nn.Module):
+    # Upscale/Downscale a layer
+    def __init__(self, c1, c2, n=1, sf=0.5):
+        # ch_in, ch_out, number, scale_factor
+        super(Scale, self).__init__()
+        self.sf = sf
+        self.C3 = BottleneckCSP(c1, c2, n=n, shortcut=True, g=1, e=0.5)
+        self.FReLU = nn.Identity()
+        # self.scale = nn.Upsample(scale_factor=sf, mode='bilinear', align_corners=False)
+
+    def forward(self, x):
+        x = self.FReLU(self.C3(x))
+        return F.interpolate(x, scale_factor=self.sf, mode='bilinear', align_corners=False, recompute_scale_factor=False)
 
 
 class CrossConv(nn.Module):

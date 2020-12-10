@@ -12,7 +12,7 @@ sys.path.append('./')  # to run '$ python *.py' files in subdirectories
 logger = logging.getLogger(__name__)
 
 from models.common import Conv, Bottleneck, SPP, DWConv, Focus, BottleneckCSP, Concat, NMS, autoShape
-from models.experimental import MixConv2d, CrossConv, C3
+from models.experimental import MixConv2d, CrossConv, C3, Scale
 from utils.autoanchor import check_anchor_order
 from utils.general import make_divisible, check_file, set_logging
 from utils.torch_utils import time_synchronized, fuse_conv_and_bn, model_info, scale_img, initialize_weights, \
@@ -41,7 +41,7 @@ class Detect(nn.Module):
         self.m = nn.ModuleList(nn.Conv2d(x, self.no * self.na, 1) for x in ch)  # output conv
 
     def forward(self, x):
-        # x = x.copy()  # for profiling
+        x = x.copy()  # for profiling
         z = []  # inference output
         self.training |= self.export
         for i in range(self.nl):
@@ -213,7 +213,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
                 pass
 
         n = max(round(n * gd), 1) if n > 1 else n  # depth gain
-        if m in [Conv, Bottleneck, SPP, DWConv, MixConv2d, Focus, CrossConv, BottleneckCSP, C3]:
+        if m in [Conv, Bottleneck, SPP, DWConv, MixConv2d, Focus, CrossConv, BottleneckCSP, C3, Scale]:
             c1, c2 = ch[f], args[0]
 
             # Normal
@@ -262,7 +262,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--cfg', type=str, default='yolov5s.yaml', help='model.yaml')
+    parser.add_argument('--cfg', type=str, default='yolov5l2.yaml', help='model.yaml')
     parser.add_argument('--device', default='', help='cuda device, i.e. 0 or 0,1,2,3 or cpu')
     opt = parser.parse_args()
     opt.cfg = check_file(opt.cfg)  # check file
@@ -274,8 +274,9 @@ if __name__ == '__main__':
     model.train()
 
     # Profile
-    # img = torch.rand(8 if torch.cuda.is_available() else 1, 3, 640, 640).to(device)
-    # y = model(img, profile=True)
+    img = torch.rand(8 if torch.cuda.is_available() else 1, 3, 640, 640).to(device)
+    y = model(img, profile=True)
+    print(x.shape for x in y)
 
     # Tensorboard
     # from torch.utils.tensorboard import SummaryWriter
@@ -283,3 +284,31 @@ if __name__ == '__main__':
     # print("Run 'tensorboard --logdir=models/runs' to view tensorboard at http://localhost:6006/")
     # tb_writer.add_graph(model.model, img)  # add model to tensorboard
     # tb_writer.add_image('test', img[0], dataformats='CWH')  # add model to tensorboard
+
+#
+#        1.4      7040      52.0ms models.common.Focus
+#        3.8     73984      61.2ms models.common.Conv
+#        8.3    161152     213.9ms models.common.BottleneckCSP
+#        3.8    295424      51.9ms models.common.Conv
+#       20.8   1627904     310.7ms models.common.BottleneckCSP
+#        3.8   1180672      45.7ms models.common.Conv
+#       20.8   6499840     269.0ms models.common.BottleneckCSP
+#        3.8   4720640      45.2ms models.common.Conv
+#        2.1   2624512     115.2ms models.common.SPP
+#        8.2  10234880     108.2ms models.common.BottleneckCSP
+#        0.4    525312       5.4ms models.common.Conv
+#        0.0         0       0.6ms torch.nn.modules.upsampling.Upsample
+#        0.0         0       0.9ms models.common.Concat
+#        9.0   2823680     125.3ms models.common.BottleneckCSP
+#        0.4    131584       7.1ms models.common.Conv
+#        0.0         0       2.1ms torch.nn.modules.upsampling.Upsample
+#        0.0         0       3.8ms models.common.Concat
+#        9.1    707328     204.0ms models.common.BottleneckCSP
+#        1.9    590336      24.3ms models.common.Conv
+#        0.0         0       1.4ms models.common.Concat
+#        8.2   2561536     108.1ms models.common.BottleneckCSP
+#        1.9   2360320      23.3ms models.common.Conv
+#        0.0         0       0.2ms models.common.Concat
+#        8.2  10234880      99.6ms models.common.BottleneckCSP
+# 1878.8ms total
+# torch.Size([1, 1024, 20, 20])
