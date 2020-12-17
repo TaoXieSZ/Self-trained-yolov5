@@ -54,9 +54,11 @@ In this project, we mainly use VOC to train and validate our models, while using
 | #Class | 20          | 91                         |
 
 <center> COCO sample: </center>
+
 ![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE1LmNuYmxvZ3MuY29tL2Jsb2cvMzY5Mjc3LzIwMTcwNC8zNjkyNzctMjAxNzA0MDEyMDE1MjIwMDgtMjAxNDE5NDI1Mi5wbmc)
 
 <center> VOC samples: </center>
+
 <img src="https://i.loli.net/2020/12/17/14oixzDBZlGqSFb.png" alt="image-20201217153232309" style="zoom:50%;" />
 
 
@@ -80,16 +82,20 @@ And we use three different size of YOLOv5, including YOLOv5m, YOLOv5l and YOLOv5
 Besides, different data augmentations will be shown:
 
 <center> Augment-S1: Flips, HSV and Perspective:  </center>
+
 ![image-20201217154146556](https://i.loli.net/2020/12/17/jf5rpMPoeEYzcvG.png)
 
 
 <center> Augment-S2- S1 + Mosaic: </center>
+
 ![img](https://lh6.googleusercontent.com/M6tymDEEtbJlWWM298axqrQ-1vd3fQXKnraKjqCPIsQlnhT02Sncd3Gx2H9nvOi5enIvVH0RdFM_QfKSE4A8-yU9Z5f7M5-nl5AqXWNx6BUctOzURz42NAoDW4mXs55cbomMblrG59g)
 
 <center> Augment-S3: S2 + MixUp: </center>
+
 ![img](https://lh6.googleusercontent.com/MjieJbMpoC6MEJa_HCrCubDQE0mdpDZu9yJZU-p7Ix1Vr1HHdu8XdcaaRebM6nCqtmDtK1c72Vid0p7Qd81rTqMSWXiqW_eRXBS5CFLPU2rXa-y1mP7unhdeQB5nnnhacqRZ9wORVzo)
 
 <center> Augment-S4 : S3 + Cutout: </center>
+
 ![img](https://lh5.googleusercontent.com/hXLZ2iNlVt7Y8PvJTo482CuNEZJtffrlNJeHNdCd4XYmvPVKwkT8EkYZXSn3MT5HFcpq9t0B4H08DhxXCvte45k0kQKKcxB-Mmn2-71IXLjcUZQwDgodDhiXmgLEqdOYHCRAMf-49YI)
 
 ## **Predictive Outcomes**
@@ -99,6 +105,7 @@ We report mAP@0.5s of our works according to the model size.
 ### YOLOv5m
 
 <center> YOLOv5m: </center>
+
 ![img](https://lh4.googleusercontent.com/bWsF5PG-jHrdYbz3p4MmobQMwGVXysy3kHrt1RCh3FR-cEZBK7Yx-Sm4dlsPmgTverum1X5KiGAV8Pu5dz-UIIYYENvf9h7WnsoB8AtKeAB5QW4cM8mpR7JH2cqjIim43jxDW6IV8Gw)
 
 
@@ -111,6 +118,7 @@ Findings:
 
 
 <center> YOLOv5l: </center>
+
 ![image-20201217204111772](https://i.loli.net/2020/12/17/LYyB3Rk79bqMJcw.png)
 
 Findings:
@@ -121,6 +129,7 @@ Findings:
 ### YOLOv5x
 
 <center> YOLOv5x: </center>
+
 ![img](https://lh4.googleusercontent.com/4viJaoIe6KF8an2vhD4OiKhp7HzRHinKeuUjkSszcCUzi0puaDkrb_m5hdHjOC7CqXc_JGJY8oyr9VNi_E1HNNM_hEsqRu1ENsHPv8Gmr22H-XCsFaSd7U_UexbOCzcSwpeQmIJlfiY)
 
 Findings:
