@@ -39,7 +39,7 @@ The other differences are as follows:
 | Projects          | Paper's                                                      | ours                                                         |
 | ----------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Data augmentation | Augment-S1 : Flips & Crops<br />Augment-S2: S1 + AutoAugment<br />Augment-S3: S2 + Large Scale Jittering<br />Augment-S4: S4 + RandAugment | Augment-S1 : Flips, Perspective & HSV<br />Augment-S2: S1 + Mosaic<br />Augment-S3: S2 + Mixup<br />Augment-S4: S4 + Cutout |
-| Tasks             | Image Classification $\to$ Object Detection<br />Image Classification $\to$ Semantic Segmentation | Object Detection$\to$ Object Detection                       |
+| Tasks             | Image Classification -> Object Detection<br />Image Classification -> Semantic Segmentation | Object Detection -> Object Detection                       |
 | Datasets          | ImageNet + MSCOCO                                            | MSCOCO + VOC                                                 |
 | Models            | EfficientNet-B7(backbone) + FPN + RetinaNet detector         | YOLOv5                                                       |
 |                   |                                                              |                                                              |
