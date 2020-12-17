@@ -1,6 +1,24 @@
 # Rethinking 'Rethinking pre-training and self-training' a little bit
 
-[toc]
+- [Goal](#goal)
+- [**Data Collection **& **Data Analysis**](#--data-collection-------data-analysis--)
+- [**Data Modeling**](#--data-modeling--)
+- [**Predictive Outcomes**](#--predictive-outcomes--)
+  * [YOLOv5m](#yolov5m)
+  * [YOLOv5l](#yolov5l)
+  * [YOLOv5x](#yolov5x)
+- [**Answering those three questions we list at the begining**](#--answering-those-three-questions-we-list-at-the-begining--)
+- [**Learning outcomes out of the project**](#--learning-outcomes-out-of-the-project--)
+- [Tutorial to reproduce this project](#tutorial-to-reproduce-this-project)
+  * [Set up environment](#set-up-environment)
+  * [Download dataset](#download-dataset)
+  * [Choose different levels of data augmentations](#choose-different-levels-of-data-augmentations)
+  * [Training from scratch](#training-from-scratch)
+  * [Pre-training](#pre-training)
+  * [Self-training](#self-training)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 
 
