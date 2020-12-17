@@ -1,7 +1,7 @@
 # Rethinking 'Rethinking pre-training and self-training' a little bit
 
 - [Goal](#goal)
-- [**Data Collection **& **Data Analysis**](#--data-collection-------data-analysis--)
+- [**Data Collection & Data Analysis**](#--data-collection-------data-analysis--)
 - [**Data Modeling**](#--data-modeling--)
 - [**Predictive Outcomes**](#--predictive-outcomes--)
   * [YOLOv5m](#yolov5m)
@@ -44,7 +44,7 @@ The other differences are as follows:
 | Models            | EfficientNet-B7(backbone) + FPN + RetinaNet detector         | YOLOv5                                                       |
 |                   |                                                              |                                                              |
 
-## **Data Collection **& **Data Analysis**
+## **Data Collection & Data Analysis**
 
 In this project, we mainly use VOC to train and validate our models, while using MSCOCO to generate psudel labels.
 
@@ -53,7 +53,7 @@ In this project, we mainly use VOC to train and validate our models, while using
 | Size   | 17k+ images | 328k images, 2,500k labels |
 | #Class | 20          | 91                         |
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE1LmNuYmxvZ3MuY29tL2Jsb2cvMzY5Mjc3LzIwMTcwNC8zNjkyNzctMjAxNzA0MDEyMDE1MjIwMDgtMjAxNDE5NDI1Mi5wbmc)
+<center>![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9pbWFnZXMyMDE1LmNuYmxvZ3MuY29tL2Jsb2cvMzY5Mjc3LzIwMTcwNC8zNjkyNzctMjAxNzA0MDEyMDE1MjIwMDgtMjAxNDE5NDI1Mi5wbmc) </center>
 
 <center> COCO sample </center>
 
@@ -84,15 +84,15 @@ Besides, different data augmentations will be shown:
 
 <center> Augment-S1: Flips, HSV and Perspective  </center>
 
-![img](https://lh6.googleusercontent.com/M6tymDEEtbJlWWM298axqrQ-1vd3fQXKnraKjqCPIsQlnhT02Sncd3Gx2H9nvOi5enIvVH0RdFM_QfKSE4A8-yU9Z5f7M5-nl5AqXWNx6BUctOzURz42NAoDW4mXs55cbomMblrG59g)
+<center>![img](https://lh6.googleusercontent.com/M6tymDEEtbJlWWM298axqrQ-1vd3fQXKnraKjqCPIsQlnhT02Sncd3Gx2H9nvOi5enIvVH0RdFM_QfKSE4A8-yU9Z5f7M5-nl5AqXWNx6BUctOzURz42NAoDW4mXs55cbomMblrG59g)</center>
 
 <center> Augment-S2- S1 + Mosaic </center>
 
-![img](https://lh6.googleusercontent.com/MjieJbMpoC6MEJa_HCrCubDQE0mdpDZu9yJZU-p7Ix1Vr1HHdu8XdcaaRebM6nCqtmDtK1c72Vid0p7Qd81rTqMSWXiqW_eRXBS5CFLPU2rXa-y1mP7unhdeQB5nnnhacqRZ9wORVzo)
+<center>![img](https://lh6.googleusercontent.com/MjieJbMpoC6MEJa_HCrCubDQE0mdpDZu9yJZU-p7Ix1Vr1HHdu8XdcaaRebM6nCqtmDtK1c72Vid0p7Qd81rTqMSWXiqW_eRXBS5CFLPU2rXa-y1mP7unhdeQB5nnnhacqRZ9wORVzo)</center>
 
 <center> Augment-S3: S2 + MixUp </center>
 
-![img](https://lh5.googleusercontent.com/hXLZ2iNlVt7Y8PvJTo482CuNEZJtffrlNJeHNdCd4XYmvPVKwkT8EkYZXSn3MT5HFcpq9t0B4H08DhxXCvte45k0kQKKcxB-Mmn2-71IXLjcUZQwDgodDhiXmgLEqdOYHCRAMf-49YI)
+<center>![img](https://lh5.googleusercontent.com/hXLZ2iNlVt7Y8PvJTo482CuNEZJtffrlNJeHNdCd4XYmvPVKwkT8EkYZXSn3MT5HFcpq9t0B4H08DhxXCvte45k0kQKKcxB-Mmn2-71IXLjcUZQwDgodDhiXmgLEqdOYHCRAMf-49YI)</center>
 
 <center> Augment-S4 : S3 + Cutout </center>
 
@@ -124,7 +124,7 @@ Findings:
 
 ### YOLOv5x
 
-![img](https://lh4.googleusercontent.com/4viJaoIe6KF8an2vhD4OiKhp7HzRHinKeuUjkSszcCUzi0puaDkrb_m5hdHjOC7CqXc_JGJY8oyr9VNi_E1HNNM_hEsqRu1ENsHPv8Gmr22H-XCsFaSd7U_UexbOCzcSwpeQmIJlfiY)
+<center>![img](https://lh4.googleusercontent.com/4viJaoIe6KF8an2vhD4OiKhp7HzRHinKeuUjkSszcCUzi0puaDkrb_m5hdHjOC7CqXc_JGJY8oyr9VNi_E1HNNM_hEsqRu1ENsHPv8Gmr22H-XCsFaSd7U_UexbOCzcSwpeQmIJlfiY)</center>
 
 Findings:
 
