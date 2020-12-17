@@ -146,10 +146,11 @@ Findings:
 
 ## **Learning outcomes out of the project**
 
-1. Finding your own project, i.e., collecting your own project, setting your own experiment, can motivate you to learn what you need;
-
-
-
+1. Problem formulation and literature review: to select an appropriate topic that is a perfect match for the course scope and our interests can be challenging. In the meanwhile, we hope our project can be related to the cut-edge work of AI society. Thus we investigated several search engines and databases, including IEEE, ACM, Springer, arxiv, etc. Finally, we chose a high standard, up-to-date working on self-training published on NIPS 2020.
+2. Training of deep neural networks (DNNs).
+DNNs are the most powerful tools in machine learning by far and capable of achieving human performance on tasks in computer vision, natural language processing, etc. However, to train a DNN that typically involve millions of parameters can be tough and tricky. We have well-practiced this skill in this project.
+3. Deploying models on an online platform.
+Due to the limitation of computation resources, we have to use Google Cloud for GPU access. However, deploy a model on Google Cloud is challenging since we have to deal with datasets and models remotely. We also do not have the privilege of an administrator as we can enjoy in local machines. This project offers us a chance to get used to online platforms like Google Cloud.
 
 
 ## Tutorial to reproduce this project
