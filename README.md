@@ -109,6 +109,8 @@ Besides, different data augmentations will be shown:
 
 We report mAP@0.5s of our works according to the model size.
 
+For mAP@0.5, we recommend this paper: https://jonathan-hui.medium.com/map-mean-average-precision-for-object-detection-45c121a31173
+
 ### YOLOv5m
 
 <center> YOLOv5m: </center>
