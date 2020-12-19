@@ -24,7 +24,7 @@
 
 ## Goal
 
-This project is motivated by the paper *Rethinking pre-training and self-training* (https://arxiv.org/abs/2006.06882). In the original paper, their goal is to find out the relationship between data augmentation and different training methods, including self-training and pre-training. Their train their models on MSCOCO, but use ImageNet to pre-train or generat psudel labeled data. However, due to the limitation of computation power, this project is experimenting on VOC dataset, using COCO pretrain models.
+This project is motivated by the paper *Rethinking pre-training and self-training* (https://arxiv.org/abs/2006.06882). In the original paper, their goal is to find out the relationship between data augmentation and different training methods, including self-training and pre-training. Their train their models on MSCOCO, but use ImageNet to pre-train or generat psudel labeled data. However, due to the limitation of computation power, this project is experimenting on VOC (http://host.robots.ox.ac.uk/pascal/VOC/) dataset, using COCO (https://arxiv.org/abs/1405.0312) pretrain models.
 
 We want to verify three issues:
 
@@ -46,7 +46,7 @@ The other differences are as follows:
 
 ## **Data Collection **& **Data Analysis**
 
-In this project, we mainly use VOC to train and validate our models, while using MSCOCO to generate psudel labels.
+In this project, we mainly use VOC (http://host.robots.ox.ac.uk/pascal/VOC/) to train and validate our models, while using MSCOCO (http://host.robots.ox.ac.uk/pascal/VOC/) to generate psudel labels.
 
 |        | VOC         | MSCOCO                     |
 | ------ | ----------- | -------------------------- |
@@ -74,6 +74,13 @@ In this project, scripts are provided to download both of them, by entering:
 In this project, we use YOLOv5 (thanks to https://github.com/ultralytics/yolov5) to model the data. The main structure is shown:
 
 ![img](https://lh4.googleusercontent.com/saE6POnJBxKeC5QNx73kNVrzC9Qs-OlpxfrzIC2gdG_KkgZ24u34nK4BLVDXyUg3iVU7APBX-51QGvpFTkTPMz-g3K0JKs80uN1aCg_3TllLkGWj2YrCD7CE43wvcYVwtXGQQi8LAxw)
+
+And really recommend to read YOLO algorithms family:
+YOLOv1: https://arxiv.org/abs/1506.02640
+YOLOv2: https://arxiv.org/abs/1612.08242
+YOLOv3: https://arxiv.org/abs/1804.02767
+YOLOv4: https://arxiv.org/abs/2004.10934
+YOLOv5: the paper is still working, according to the aurthors
 
 And we use three different size of YOLOv5, including YOLOv5m, YOLOv5l and YOLOv5x:
 
