@@ -76,11 +76,11 @@ In this project, we use YOLOv5 (thanks to https://github.com/ultralytics/yolov5)
 ![img](https://lh4.googleusercontent.com/saE6POnJBxKeC5QNx73kNVrzC9Qs-OlpxfrzIC2gdG_KkgZ24u34nK4BLVDXyUg3iVU7APBX-51QGvpFTkTPMz-g3K0JKs80uN1aCg_3TllLkGWj2YrCD7CE43wvcYVwtXGQQi8LAxw)
 
 And really recommend to read YOLO algorithms family:
-YOLOv1: https://arxiv.org/abs/1506.02640
-YOLOv2: https://arxiv.org/abs/1612.08242
-YOLOv3: https://arxiv.org/abs/1804.02767
-YOLOv4: https://arxiv.org/abs/2004.10934
-YOLOv5: the paper is still working, according to the aurthors
+1. YOLOv1: https://arxiv.org/abs/1506.02640 
+2. YOLOv2: https://arxiv.org/abs/1612.08242 
+3. YOLOv3: https://arxiv.org/abs/1804.02767 
+4. YOLOv4: https://arxiv.org/abs/2004.10934 
+5. YOLOv5: the paper is still working, according to the aurthors
 
 And we use three different size of YOLOv5, including YOLOv5m, YOLOv5l and YOLOv5x:
 
