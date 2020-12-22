@@ -1,6 +1,6 @@
 # Rethinking 'Rethinking pre-training and self-training' a little bit
 
-- [Goal](#goal)
+- [**Goal**](#goal)
 - [**Data Collection & Data Analysis**](#--data-collection-------data-analysis--)
 - [**Data Modeling**](#--data-modeling--)
 - [**Predictive Outcomes**](#--predictive-outcomes--)
@@ -9,7 +9,7 @@
   * [YOLOv5x](#yolov5x)
 - [**Answering those three questions we list at the begining**](#--answering-those-three-questions-we-list-at-the-begining--)
 - [**Learning outcomes out of the project**](#--learning-outcomes-out-of-the-project--)
-- [Tutorial to reproduce this project](#tutorial-to-reproduce-this-project)
+- [**Tutorial to reproduce this project**](#tutorial-to-reproduce-this-project)
   * [Set up environment](#set-up-environment)
   * [Download dataset](#download-dataset)
   * [Choose different levels of data augmentations](#choose-different-levels-of-data-augmentations)
@@ -227,7 +227,6 @@ We use the best-performing model to generate labels on data from COCO and you ca
 
 [here]: https://drive.google.com/file/d/1HhhmIBJXC1ZFcgR1OWHvoSMg-wtIpjBt/view?usp=sharing	"."
 
-.
 
 Download it and place at `/content` on Colab. Then run the following lines to generate new dataset for self-training.
 
