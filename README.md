@@ -223,9 +223,7 @@ Train pretrained yolov5l on VOC
 
 ### Self-training
 
-We use the best-performing model to generate labels on data from COCO and you can access 
-
-[here]: https://drive.google.com/file/d/1HhhmIBJXC1ZFcgR1OWHvoSMg-wtIpjBt/view?usp=sharing	"."
+We use the best-performing model to generate labels on data from COCO and you can access by link https://drive.google.com/file/d/1HhhmIBJXC1ZFcgR1OWHvoSMg-wtIpjBt/view?usp=sharing .
 
 
 Download it and place at `/content` on Colab. Then run the following lines to generate new dataset for self-training.
